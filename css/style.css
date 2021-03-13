@@ -1,0 +1,55 @@
+/* 全体的な設定 */
+:root {
+  /* 一行あたりのセルの数 */
+  --cells: 21;
+
+  /* 一行あたりの幅(1マス80px) */
+  --width: 1680px;
+
+  /* セルの幅 ＝ 一行あたりの幅 ／ 一行あたりのセルの数*/
+  --cell-size: calc(var(--width) / var(--cells));
+}
+
+/* 表全体の見た目 */
+#result {
+  /* 左右の幅を均等に */
+  margin: auto;
+  /* フレックスボックスを使用してレイアウト */
+  display: flex;
+
+  /* 横方向に並べ、必要に応じて折り返す */
+  flex-flow: row wrap;
+
+  /* 横幅 */
+  width: var(--width);
+
+  /* 枠線。幅1px、実線、灰色 */
+  border-bottom: 1px solid gray;
+  border-right: 1px solid gray;
+}
+
+/* セルの見た目（基本） */
+.cell {
+  /* 幅 */
+  flex: var(--cell-size);
+
+  /* 高さ */
+  height: var(--cell-size);
+
+  /* 枠線をサイズ計算に含めない */
+  box-sizing: border-box;
+
+  /* 枠線。幅1px、実線、灰色 */
+  border-top: 1px solid gray;
+  border-left: 1px solid gray;
+}
+
+/* 0に対応するセル */
+.dead {
+  background-color: white;
+}
+
+/* 1に対応するセル */
+.live {
+  background-color: black;
+}
